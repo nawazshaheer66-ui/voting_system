@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗳️ Online Voting System</h1>
+            <p>Secure • Transparent • Democratic</p>
+        </div>
+
+      
+        <div id="mainMenu" class="menu-container">
+            <h2>Main Menu</h2>
+            <div class="menu-buttons">
+                <button class="menu-btn admin-btn" onclick="showAdminLogin()">
+                    <span class="icon">👤</span>
+                    Admin Login
+                </button>
+                <button class="menu-btn register-btn" onclick="showRegisterCandidate()">
+                    <span class="icon">📝</span>
+                    Register Candidate
+                </button>
+                <button class="menu-btn voter-btn" onclick="showRegisterVoter()">
+                    <span class="icon">👥</span>
+                    Register Voter
+                </button>
+                <button class="menu-btn vote-btn" onclick="showCastVote()">
+                    <span class="icon">🗳️</span>
+                    Cast Vote
+                </button>
+            </div>
+        </div>
+
+        <div id="adminLogin" class="form-container" style="display: none;">
+            <h2>Admin Login</h2>
+            <div class="form-group">
+                <label for="adminUsername">Username:</label>
+                <input type="text" id="adminUsername" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Password:</label>
+                <input type="password" id="adminPassword" placeholder="Enter password">
+            </div>
+            <button class="submit-btn" onclick="adminLogin()">Login</button>
+            <button class="back-btn" onclick="showMainMenu()">Back</button>
+        </div>
+
+    
+        <div id="registerCandidate" class="form-container" style="display: none;">
+            <h2>Register Candidate</h2>
+            <div class="form-group">
+                <label for="candidateName">Candidate Name:</label>
+                <input type="text" id="candidateName" placeholder="Enter candidate name">
+            </div>
+            <button class="submit-btn" onclick="registerCandidate()">Register</button>
+            <button class="back-btn" onclick="showMainMenu()">Back</button>
+        </div>
+
+        <!-- Register Voter -->
+        <div id="registerVoter" class="form-container" style="display: none;">
+            <h2>Register Voter</h2>
+            <div class="form-group">
+                <label for="voterIdReg">Voter ID:</label>
+                <input type="text" id="voterIdReg" placeholder="Enter unique voter ID">
+            </div>
+            <button class="submit-btn" onclick="registerVoter()">Register</button>
+            <button class="back-btn" onclick="showMainMenu()">Back</button>
+        </div>
+
+        
+        <div id="castVote" class="form-container" style="display: none;">
+            <h2>Cast Your Vote</h2>
+            <div class="form-group">
+                <label for="voterIdVote">Your Voter ID:</label>
+                <input type="text" id="voterIdVote" placeholder="Enter your voter ID">
+            </div>
+            <button class="submit-btn" onclick="verifyVoter()">Continue</button>
+            <button class="back-btn" onclick="showMainMenu()">Back</button>
+        </div>
+
+       
+        <div id="votingInterface" class="form-container" style="display: none;">
+            <h2>Select Your Candidate</h2>
+            <div id="candidatesList" class="candidates-list">
+                <!-- Candidates will be populated here -->
+            </div>
+            <button class="back-btn" onclick="showCastVote()">Back</button>
+        </div>
+
+        <!-- Results Display -->
+        <div id="resultsDisplay" class="results-container" style="display: none;">
+            <h2>🏆 Voting Results</h2>
+            <div id="resultsList" class="results-list">
+                <!-- Results will be populated here -->
+            </div>
+            <button class="back-btn" onclick="showMainMenu()">Back to Menu</button>
+        </div>
+
+        <!-- Message Display -->
+        <div id="messageDisplay" class="message-container">
+            <div id="messageText" class="message"></div>
+        </div>
+
+        
+        <div class="stats-panel">
+            <div class="stat-item">
+                <span class="stat-label">Total Candidates:</span>
+                <span id="totalCandidates" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Registered Voters:</span>
+                <span id="totalVoters" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Votes Cast:</span>
+                <span id="totalVotes" class="stat-value">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
